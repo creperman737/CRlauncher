@@ -35,3 +35,26 @@ macOS
 🗺️ Development roadmap
 ⚖️ Minecraft/Mojang bilan bog‘liq huquqiy chegaralar
 📌 Alpha → Beta rejasi
+
+
+Alpha 0.1	OS aniqlash	✅
+	.minecraft topish	✅
+	Java aniqlash	🔜
+	Minecraft versiyalarini o‘qish	🔜
+Alpha 0.2	Minecraft version tanlash	⏳
+	Launch tizimi	⏳
+	RAM sozlamasi	⏳
+Alpha 0.3	🌐 CR Skin API	⏳
+	Username → skin URL	⏳
+	PNG downloader	⏳
+Alpha 0.4	⭐ CR Skin System	⏳
+	Resource-pack generator	⏳
+	Snapshot skin testlari	⏳
+Alpha 0.5	⚡ Smart Optimization	⏳
+	CPU/RAM/GPU detection	⏳
+	Version-specific profiles	⏳
+Beta 1.0	🖥️ GUI	⏳
+	Settings	⏳
+	Version manager	⏳
+	Skin manager	⏳
+	Optimization manager	⏳
