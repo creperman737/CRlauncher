@@ -1,6 +1,8 @@
 from launcher.minecraft import get_minecraft_directory
 from launcher.versions import get_versions
 from launcher.java_runtime import find_java
+import os
+
 from launcher.launch import (
     load_version,
     get_main_class,
@@ -9,6 +11,7 @@ from launcher.launch import (
     get_libraries,
     get_library_jars,
     get_arguments,
+    build_classpath,
 )
 
 
@@ -82,6 +85,13 @@ def main():
 
         for jar in library_jars[:5]:
             print(f"  ✓ {jar}")
+
+        classpath = build_classpath(
+            version_data,
+            minecraft_dir
+        )
+
+        print(f"Classpath entries: {len(classpath.split(os.pathsep))}")
 
         arguments = get_arguments(version_data)
 

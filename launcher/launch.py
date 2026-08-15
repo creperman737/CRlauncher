@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import os
 
 
 def load_version(version_id: str, minecraft_dir: Path) -> dict:
@@ -91,3 +92,39 @@ def get_arguments(version_data: dict) -> dict:
         "jvm": arguments.get("jvm", []),
         "game": arguments.get("game", [])
     }
+
+
+def build_classpath(
+    version_data: dict,
+    minecraft_dir: Path
+) -> str:
+    """Build Minecraft classpath from installed libraries.
+
+    Collects installed library JARs (via get_library_jars) and appends the
+    version's own jar if present. Returns a single classpath string where
+    entries are separated by os.pathsep.
+    """
+
+    jars = get_library_jars(
+        version_data,
+        minecraft_dir
+    )
+
+    version_id = version_data.get("id")
+
+    if not version_id:
+        raise ValueError("Minecraft version ID is missing.")
+
+    version_jar = (
+        minecraft_dir
+        / "versions"
+        / version_id
+        / f"{version_id}.jar"
+    )
+
+    if version_jar.is_file():
+        jars.append(version_jar)
+
+    return os.pathsep.join(
+        str(jar) for jar in jars
+    )
