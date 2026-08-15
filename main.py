@@ -1,5 +1,6 @@
 from launcher.minecraft import get_minecraft_directory
 from launcher.versions import get_versions
+from launcher.java_runtime import find_java
 
 
 def main():
@@ -16,19 +17,29 @@ def main():
     print("\nMinecraft directory:")
     print(minecraft_dir)
 
+    # Java
+    java = find_java()
+
+    print("\nJava:")
+
+    if java:
+        print(f"✓ Found: {java}")
+    else:
+        print("✗ Java not found")
+
+    # Minecraft versions
     print("\nMinecraft versions:")
 
     versions = get_versions()
 
     if not versions:
         print("No versions found")
-        return
-
-    for version in versions:
-        print(
-            f"✓ {version['id']} "
-            f"[{version['type']}]"
-        )
+    else:
+        for version in versions:
+            print(
+                f"✓ {version['id']} "
+                f"[{version['type']}]"
+            )
 
 
 if __name__ == "__main__":
