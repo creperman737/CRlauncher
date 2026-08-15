@@ -1,6 +1,22 @@
 🚀 CRLauncher nima
 🎯 Asosiy maqsad
-⭐ CR Skin System — flagship feature
+⭐ CR Skin System — flagship feature : 
+CRLauncher Alpha
+
+Minecraft directory:
+C:\Users\...\AppData\Roaming\.minecraft
+
+Java:
+✓ Found
+
+Minecraft versions:
+✓ 1.20.1
+✓ 1.21.8
+✓ Snapshot
+
+CR Skin:
+Ready
+
 🖥️ PC/Minecraft detection
 🧩 Snapshot resource-pack tizimi
 ⚡ Smart Optimization
