@@ -18,6 +18,16 @@ CR Skin:
 Ready
 
 🖥️ PC/Minecraft detection
+💻 OSda ishlashi:
+Windows
+%APPDATA%/.minecraft
+
+Linux
+~/.minecraft
+
+macOS
+~/Library/Application Support/minecraft
+
 🧩 Snapshot resource-pack tizimi
 ⚡ Smart Optimization
 🌐 CR Skin API
