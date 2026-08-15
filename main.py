@@ -9,12 +9,12 @@ def main():
 
     minecraft_dir = get_minecraft_directory()
 
-    if minecraft_dir:
-        print(f"Minecraft directory:")
-        print(minecraft_dir)
-    else:
+    if minecraft_dir is None:
         print("Minecraft directory: Not found")
         return
+
+    print("\nMinecraft directory:")
+    print(minecraft_dir)
 
     print("\nMinecraft versions:")
 
@@ -22,9 +22,13 @@ def main():
 
     if not versions:
         print("No versions found")
-    else:
-        for version in versions:
-            print(f"✓ {version}")
+        return
+
+    for version in versions:
+        print(
+            f"✓ {version['id']} "
+            f"[{version['type']}]"
+        )
 
 
 if __name__ == "__main__":
