@@ -52,9 +52,23 @@ def main():
             minecraft_dir
         )
 
-        main_class = get_main_class(version_data)
+        print(f"Main class: {get_main_class(version_data)}")
+        print(f"Version ID: {get_version_id(version_data, selected_version)}")
 
-        print(f"Main class: {main_class}")
+        parent = get_inherited_version(version_data)
+
+        if parent:
+            print(f"Inherits from: {parent}")
+        else:
+            print("Inherits from: None")
+
+        libraries = get_libraries(version_data)
+        print(f"Libraries: {len(libraries)}")
+
+        arguments = get_arguments(version_data)
+
+        print(f"JVM arguments: {len(arguments['jvm'])}")
+        print(f"Game arguments: {len(arguments['game'])}")
 
     except Exception as error:
         print(f"Launch preparation error: {error}")
