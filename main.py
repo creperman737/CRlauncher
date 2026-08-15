@@ -71,17 +71,17 @@ def main():
             print("Inherits from: None")
 
         declared_libraries = get_libraries(version_data)
-        print(f"Libraries declared: {len(declared_libraries)}")
+        print(f"Libraries: {len(declared_libraries)}")
 
-        jars = get_library_jars(
+        library_jars = get_library_jars(
             version_data,
             minecraft_dir
         )
 
-        print(f"Libraries found: {len(jars)}")
+        print(f"Installed library JARs: {len(library_jars)}")
 
-        for jar in jars[:5]:
-            print(f"  - {jar}")
+        for jar in library_jars[:5]:
+            print(f"  ✓ {jar}")
 
         arguments = get_arguments(version_data)
 
