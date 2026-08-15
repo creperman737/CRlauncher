@@ -1,7 +1,15 @@
 from launcher.minecraft import get_minecraft_directory
 from launcher.versions import get_versions
 from launcher.java_runtime import find_java
-from launcher.launch import load_version, get_main_class
+from launcher.launch import (
+    load_version,
+    get_main_class,
+    get_version_id,
+    get_inherited_version,
+    get_libraries,
+    get_library_jars,
+    get_arguments,
+)
 
 
 def main():
@@ -62,8 +70,18 @@ def main():
         else:
             print("Inherits from: None")
 
-        libraries = get_libraries(version_data)
-        print(f"Libraries: {len(libraries)}")
+        declared_libraries = get_libraries(version_data)
+        print(f"Libraries declared: {len(declared_libraries)}")
+
+        jars = get_library_jars(
+            version_data,
+            minecraft_dir
+        )
+
+        print(f"Libraries found: {len(jars)}")
+
+        for jar in jars[:5]:
+            print(f"  - {jar}")
 
         arguments = get_arguments(version_data)
 

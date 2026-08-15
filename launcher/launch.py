@@ -48,6 +48,40 @@ def get_libraries(version_data: dict) -> list:
     return version_data.get("libraries", [])
 
 
+def get_library_jars(
+    version_data: dict,
+    minecraft_dir: Path
+) -> list[Path]:
+    """Find installed library JAR files.
+
+    Scans version_data['libraries'] for a downloads.artifact.path entry and
+    returns Path objects for files that actually exist under the Minecraft
+    'libraries' directory.
+    """
+
+    libraries_dir = minecraft_dir / "libraries"
+    jars: list[Path] = []
+
+    for library in version_data.get("libraries", []):
+        downloads = library.get("downloads", {})
+        artifact = downloads.get("artifact")
+
+        if not artifact:
+            continue
+
+        path = artifact.get("path")
+
+        if not path:
+            continue
+
+        jar = libraries_dir / path
+
+        if jar.is_file():
+            jars.append(jar)
+
+    return jars
+
+
 def get_arguments(version_data: dict) -> dict:
     """Return JVM and game arguments."""
 
